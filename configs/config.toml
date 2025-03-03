@@ -1,0 +1,5 @@
+[server]
+host = "localhost"
+port = 30080
+uptime = "5s"
+allowed_origins = "http://localhost:5173"
