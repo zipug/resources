@@ -44,10 +44,11 @@ func main() {
 				allowedOrigins[origin] = true
 			}
 			origin := r.Header.Get("Origin")
+			fmt.Println("request origin", origin)
 			return allowedOrigins[origin]
 		},
 	}
-	http.HandleFunc("/", getStatsWithUptime(upgrader, cfg.Server.Uptime))
+	http.HandleFunc("/ws/", getStatsWithUptime(upgrader, cfg.Server.Uptime))
 	if err := http.ListenAndServe(
 		fmt.Sprintf(
 			"%s:%d",
